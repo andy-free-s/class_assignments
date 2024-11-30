@@ -1,19 +1,13 @@
 public class Client {
-    public static void main(String arg[]){
-        Leader objDirector,objDean,objVicePresident,objPresident,objViceDean;
-        objDirector = new Director("王明主任");
-        objViceDean = new ViceDean("李龙副院长");
-        objDean = new Dean("赵强院长");
-        objVicePresident = new VicePresident("李波副校长");
-        objPresident = new President("肖红校长");
+    public static void main(String[] args) {
+        // 加载采购审批流程
+        Leader purchaseChain = XMLUtilLeader.getApprovalChain("src/purchase_config.xml");
+        LeaveRequest purchaseRequest = new LeaveRequest("张三", 7000, "purchase");
+        purchaseChain.handleRequest(purchaseRequest);
 
-
-        objDirector.setSuccessor(objViceDean);
-        objViceDean.setSuccessor(objDean);
-        objDean.setSuccessor(objVicePresident);
-        objVicePresident.setSuccessor(objPresident);
-
-        LeaveRequest lr1 = new LeaveRequest("张三",7000);
-        objDirector.handleRequest(lr1);
+        // 加载批假审批流程
+        Leader leaveChain = XMLUtilLeader.getApprovalChain("src/leave_config.xml");
+        LeaveRequest leaveRequest = new LeaveRequest("李四", 5, "leave");
+        leaveChain.handleRequest(leaveRequest);
     }
 }

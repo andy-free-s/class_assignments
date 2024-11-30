@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<config>
+    <process>
+        <leader class="Director" title="主任">5000</leader>
+        <leader class="ViceDean" title="副院长">8000</leader>
+        <leader class="Dean" title="院长">10000</leader>
+        <leader class="VicePresident" title="副校长">30000</leader>
+        <leader class="President" title="校长">-1</leader>
+    </process>
+</config>

@@ -1,21 +1,23 @@
 public class LeaveRequest {
-    private String Name;
-    private int Bucks;
+    private String name;
+    private int amountOrDays; // 可表示金额或天数
+    private String type;      // 类型: "purchase" 或 "leave"
 
-    public LeaveRequest(String Name,int Bucks){
-        this.Name = Name;
-        this.Bucks = Bucks;
+    public LeaveRequest(String name, int amountOrDays, String type) {
+        this.name = name;
+        this.amountOrDays = amountOrDays;
+        this.type = type;
     }
-    public void setName(String Name){
-        this.Name = Name;
+
+    public String getName() {
+        return name;
     }
-    public void setBucks(int Bucks){
-        this.Bucks = Bucks;
+
+    public int getAmountOrDays() {
+        return amountOrDays;
     }
-    public String getName(){
-        return (this.Name);
-    }
-    public int getBucks(){
-        return (this.Bucks);
+
+    public String getType() {
+        return type;
     }
 }

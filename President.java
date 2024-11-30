@@ -1,11 +1,14 @@
-public class President extends Leader{
-    public President(String name){
-        super(name);
+public class President extends Leader {
+    public President(String title, int approvalLimit) {
+        super(title, approvalLimit);
     }
-    public void handleRequest(LeaveRequest request){
-        if(request.getBucks() > 30000){
-            System.out.println("校长:" + name+"审批" + request.getName() +
-                    "的采购为" + request.getBucks() + "元");
+
+    @Override
+    public void handleRequest(LeaveRequest request) {
+        if (request.getAmountOrDays() > approvalLimit) {
+            System.out.println(title + "审批" + request.getName() +
+                    "的" + request.getType() + "为" + request.getAmountOrDays() +
+                    (request.getType().equals("purchase") ? "元" : "天"));
         }
     }
 }
